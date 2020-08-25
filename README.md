@@ -1,4 +1,4 @@
-# The Challenge - Winter 2020
+# Take-home Assignment - Fall 2020
 
 ![Hack4Impact McGill Logo](./hack4impact-logo-text-long.png)
 
