@@ -26,7 +26,7 @@ _This exercise is due before Saturday, September 19th at 11:59PM EST. If you can
 
 Submit either a link to your forked GitHub repository or a zipped folder with all of your code to hack4impact@mcgilleus.ca.
 
-For any questions, feel free to email albert.kragl@mail.mcgill.ca.
+For any questions, feel free to email president.hack4impact@mcgilleus.ca.
 
 ## Setup
 
@@ -38,7 +38,7 @@ We suggest doing the following from your terminal/command line. Once you've fork
 
 ```
 $ git clone <url>
-$ cd takehome-assignment
+$ cd takehome-assignment-f20
 ```
 
 _Note: if you get an error after running the `git` command, make sure to install git [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)._
@@ -47,15 +47,17 @@ Now open a second terminal and navigate to this cloned repository.
 In one of the terminals, type `cd backend` then follow the [backend instructions](backend/README.md).
 In the other, type `cd vue-frontend` then follow the [frontend instructions](frontend/README.md).
 
-[Postman](https://www.getpostman.com/) or [Advanced REST Client](https://install.advancedrestclient.com/install) will be useful for testing your backend as you go. These are applications that can send various types of HTTP requests to specified endpoints. Click on the links to download whichever one you prefer. Note that the Postman examples are about a different scenario, but they should help you to use it.
+[Postman](https://www.getpostman.com/) will be useful for testing your backend as you go. This is an application that can send various types of HTTP requests to specified endpoints. You can use Postman or another tool of your choice.
 
 For this assignment, we don't recommend using Eclipse; instead, we recommend using either [VSCode](https://code.visualstudio.com/download) or [Atom](https://atom.io/) as your code editor.
 
 # Exercise
 
-The following exercise will have you learn and apply some Vue and Flask to build a tool to keep track of your progress in multiple TV shows. Check the README in the `backend` folder for more detailed instructions!
+The following exercise will have you learn and apply some Vue and Flask concepts to build a tool to keep track of your progress in multiple TV shows.
 
 ## Flask
+
+Check the README in the `backend` folder for more detailed instructions!
 
 ### Part 1 - Already Done
 
@@ -66,7 +68,7 @@ GET /shows
 http://127.0.0.1:8080/shows
 ```
 
-This should return a properly formatted [JSON](https://www.w3schools.com/whatis/whatis_json.asp) response that contains a list of all the `shows` in the mockdb. If you call this endpoint **after starting the server**, you should get this response in Postman/ARC:
+This should return a properly formatted [JSON](https://www.w3schools.com/whatis/whatis_json.asp) response that contains a list of all the `shows` in the mockdb. If you call this endpoint **after starting the server**, you should get this response in Postman:
 
 ```
 {
@@ -132,7 +134,7 @@ POST /shows
 
 This endpoint should create a new show. Each request should also send a `name`, and `episodes_seen` parameter in the request's `body`. The `id` property will be created automatically in the mockdb.
 
-> **Note:** you will need to use either Postman or ARC to make a POST request! URLs typed into a browser window will always send a GET request, which don't contain a request body.
+> **Note:** you will need to use Postman (or another tool of your choice) to make a POST request! URLs typed into a browser window will always send a GET request, which don't contain a request body.
 
 A successful request should return a status code of `201` and return the newly created show (in the same format as Part 2).
 
@@ -153,7 +155,7 @@ Here we need to provide a show's `id` since we need to specify which show to upd
 
 However, the difference with this `PUT` request is that only values with the provided keys (`name`, `episodes_seen`) will be updated, and any parameters not provided will not change the corresponding attribute in the show being updated.
 
-You do not need to account for `body` parameters provided that aren't `name`, or `episodes_seen`.
+You do not need to account for `body` parameters provided that aren't `name` or `episodes_seen`.
 
 If the show with the provided `id` cannot be found, return a `404` and a useful `message`.
 
@@ -179,7 +181,7 @@ If `minEpisodes` is provided as a query string parameter, only return the shows 
 
 For this exercise, you can ignore any query string parameters other than `minEpisodes` and you may assume that the provided parameter will be an integer represented as a string of digits.
 
-In Postman, you can supply query string parameters writing the query string into your request url or by hitting the `Params` button next to `Send`. Doing so will automatically fill in the request url.
+In Postman, you can supply query string parameters writing the query string into your request URL or by hitting the `Params` button next to `Send`. Doing so will automatically fill in the request URL.
 
 The following should happen:
 
