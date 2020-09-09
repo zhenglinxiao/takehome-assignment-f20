@@ -9,6 +9,8 @@ This challenge is intended to expose you to some elements of our most common tec
 - [Python3 Tutorial](https://docs.python.org/3.7/tutorial/index.html)
 - [Python Documentation](https://docs.python.org/3.7/)
 
+**Note that Python 3 is required to run the backend code!**
+
 The following resources may be helpful for learning Vue:
 
 [The Official Vue Documentation](https://vuejs.org/v2/guide/) is very beneficial to go through to get a complete understanding on Vue fundamentals; reading about [Single File Components](https://vuejs.org/v2/guide/single-file-components.html) will be useful for this assignment in particular. It may also be beneficial to get comfortable diving into [Javascript Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) as part of this exercise.
@@ -22,7 +24,7 @@ Reading the following will help you get a sense of the big picture when it comes
 
 This project will be broken down into multiple parts. After you finish this project, you must submit it by following the instructions below.
 
-_This exercise is due before Saturday, September 19th at 11:59PM EST. If you can't figure everything out or have spent over 10 hours total, just submit what you have! We prioritize effort over your current skills and knowledge. That being said, if you've completed the entire challenge show off your creativity by adding some extra features in!_
+_This exercise is due before Saturday, September 24th at 11:59PM EST. If you can't figure everything out or have spent over 10 hours total, just submit what you have! We prioritize effort over your current skills and knowledge. That being said, if you've completed the entire challenge show off your creativity by adding some extra features in!_
 
 Submit either a link to your forked GitHub repository or a zipped folder with all of your code to hack4impact@mcgilleus.ca.
 
