@@ -51,9 +51,39 @@ def mirror(name):
     data = {"name": name}
     return create_response(data)
 
+@app.route("/shows", methods=['POST'])
+def create_show():
+    info = request.json
+    if "name" not in info:
+        if "episodes_seen" not in info:
+            return create_response(status=422, message="Parameters missing")
+        return create_response(status=422, message="Name parameter missing")
+    elif "episodes_seen" not in info:
+        return create_response(status=422, message="Episodes seen parameter missing")
+    id = db.create('shows', info)["id"]
+    return create_response(data=db.getById('shows',int(id)), status=201)
+
+@app.route("/shows/<id>", methods=['POST'])
+def modify_show(id):
+    if db.getById('shows', int(id)) is None:
+        return create_response(status=404, message="No show with this id exists")
+    info = dict()
+    if "name" in request.json:
+        info["name"] = request.json["name"]
+    if "episodes_seen" in request.json:
+        info["episodes_seen"] = request.json["episodes_seen"]
+    db.updateById('shows', int(id), info)
+    return create_response(data=db.getById('shows', int(id)))
+
 @app.route("/shows", methods=['GET'])
 def get_all_shows():
     return create_response({"shows": db.get('shows')})
+
+@app.route("/shows/<id>", methods=['GET'])
+def get_show(id):
+    if db.getById('shows', int(id)) is None:
+        return create_response(status=404, message="No show with this id exists")
+    return create_response(data=db.getById('shows',int(id)))
 
 @app.route("/shows/<id>", methods=['DELETE'])
 def delete_show(id):
