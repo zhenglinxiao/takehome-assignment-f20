@@ -77,7 +77,18 @@ def modify_show(id):
 
 @app.route("/shows", methods=['GET'])
 def get_all_shows():
-    return create_response({"shows": db.get('shows')})
+    min_episodes = request.args.get('minEpisodes')
+    if min_episodes is None:
+        return create_response({"shows": db.get('shows')})
+    else:
+        display_shows = dict()
+        display_shows['shows'] = []
+        for show in db.get('shows'):
+            if show['episodes_seen'] >= int(min_episodes):
+                display_shows['shows'].append(show)
+        if len(display_shows['shows']) == 0:
+            return create_response(status=200, message="No such shows found")
+        return create_response(data=display_shows)
 
 @app.route("/shows/<id>", methods=['GET'])
 def get_show(id):
